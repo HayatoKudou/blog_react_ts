@@ -1,0 +1,263 @@
+.main_content {
+    padding: 0px 15px 15px 15px;
+}
+
+.input_str {
+    width: 100%;
+    margin-top: 10px !important;
+}
+
+.input_regular_expression {
+    /* width: 90%;
+    margin: 0 auto; */
+}
+
+.input_regular_expression_title {
+    font-size: 16px;
+    font-family: serif;
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+}
+
+.input_regular_expression summary {
+    outline: none;
+    height: 25px;
+    line-height: 25px;
+}
+
+.example_regularExpression_explanation {
+    margin-top: 10px;
+    padding: 0 20px 0 20px;
+    font-size: 13px;
+}
+
+.example_regularExpression_explanation ul{
+    border: solid 2px;
+    border-color: #86cdd4;
+    padding-right: 30px;
+}
+
+.regularExpression_detail {
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.regularExpression_detail p{
+    display: inline;
+}
+
+.regularExpression_detail .col-md-4 {
+    padding-left: 0px;
+}
+
+.input_regular_expression summary::before {
+    /* margin-right: 200px; */
+}
+
+.regular_expression_pattren_button_form button {
+    font-size: 13px;
+    margin: 1px;
+}
+
+.option_flag_input_form label {
+    display: block;
+    height: 30px;
+}
+
+.option_flag_input_form label span{
+    cursor: pointer;
+}
+
+.option_flag_input_form label span {
+    font-size: 16px;
+    /* cursor: pointer; */
+}
+
+.regularExpression_detail_title {
+    width: 30%;
+    display: inline-block;
+}
+
+.regularExpression_detail_display {
+    width: 50%;
+    font-size: 13px;
+    padding: 0px;
+    z-index: 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.regularExpression_detail_display p {
+    font-size: 0.7rem;
+    z-index: 0;
+    width: 100%;
+    line-height: 25px;
+}
+
+.result_form {
+    width: 100%;
+    margin-top: 30px !important;
+}
+
+.box_form {
+    margin-top: 50px;
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    font-family: serif;
+}
+.box_form .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.box_form p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.box_form .p1 {
+    margin-bottom: 10px;
+}
+
+.box_form blockquote {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.box_form blockquote cite {
+    font-size: 15px;
+    display: block;
+}
+
+.box_form ul {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.regular_expression_pattren_button_group {
+    margin-bottom: 7px;
+}
+
+.regular_expression_pattren_button_group button {
+    text-transform: none;
+}
+
+
+.readmore{
+    position: relative;
+    box-sizing: border-box;
+    /*以下お好み*/
+    /* ボーダーを付ける場合 */
+    padding: 10px;
+}
+
+.exmple_form {
+    padding-left: 0px;
+}
+
+.readmore-content{
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+.readmore-content::before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    /*以下お好み グラデーションの色と高さ 高さはreadmoreのheight以下にすること*/
+    height: 50px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+    background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+}
+
+/* 続きを読むボタン */
+.readmore-label{
+    font-size: 16px;
+    cursor: pointer;
+    display: table;
+    bottom: 5px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin: 0 auto;
+    z-index: 1;
+    padding: 0 10px;
+    background-color: #95ccff;
+    border-radius: 10px;
+    color: #FFF;
+}
+.readmore-label:before{
+    content: 'もっと見る';
+}
+
+.readmore-check{
+    display: none;
+}
+/*チェック時にボタンを非表示*/
+.readmore-check:checked ~ .readmore-label{
+    position: static;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
+    /* display: none; */
+}
+.readmore-check:checked ~ .readmore-label:before{
+    content: '閉じる';
+}
+/*チェック時に高さを自動に戻す*/
+.readmore-check:checked ~ .readmore-content{
+    height: auto;
+}
+/*チェック時グラデーション等を削除*/
+.readmore-check:checked ~ .readmore-content::before {
+    display: none;
+}
+
+.regularExpression_detail .MuiButtonBase-root {
+    padding-top: 5px;
+}
+
+
+.input_icon {
+    display: inherit;
+}
+
+.input_icon button {
+    max-height: 40px;
+    outline: none;
+    padding: 5px;
+}
+
+.copy_icon {
+    cursor: pointer;
+}
+
+/* スマホ用 */
+@media screen and (max-width: 600px) {
+    .regularExpression_detail {
+        display: block;
+        margin-left: 15px;
+    }
+    .regularExpression_detail_display {
+        display: none;
+    }
+}

@@ -1,0 +1,98 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+    padding: 20px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.page_title {
+    padding: 15px;
+}
+
+.page_title h1 {
+    font-size: 30px;
+    position: relative;
+    padding: 5px;
+    border-left: 6px solid #3498db;
+}
+
+.page_title h1::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+.page_title .page_detail {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.page_title .update_date p {
+    font-size: 15px;
+}
+
+.page_title .create_date {
+    font-size: 17px;
+}
+
+.page_title .article_url {
+    font-size: 19px;
+    text-decoration: none;
+}
+
+.page_title .articles {
+    margin-top: 15px;
+}
+
+.page_title .articles .article {
+    margin-top: 15px;
+    border-bottom: dotted 1px;
+}
+
+.sns_form {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    background-color: #1b95e0;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.sns_form svg {
+    margin: 0 auto;
+}
+
+.paper {
+    width: max-content;
+    z-index: 2;
+    position: absolute;
+    top: 40px;
+    left: -150px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.paper div {
+    margin-bottom: 5px;
+    border-bottom: dotted 1px;
+}

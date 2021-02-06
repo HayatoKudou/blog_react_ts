@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Header from '../parts/header';
 import { makeStyles } from '@material-ui/core/styles';
 import { serverUrl } from '../../common';
+import Breadcrumb from '../parts/breadcrumb';
 
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -10,6 +11,12 @@ import Button from '@material-ui/core/Button';
 import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        margin: '0 auto',
+        marginTop: '20px',
+        padding: '15px',
+    },
     aleart: {
         marginTop: '20px',
     },
@@ -34,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Contact(){
+export default function Contact(props){
 
     const { register, handleSubmit, errors, reset } = useForm();
     const classes = useStyles();
@@ -71,43 +78,46 @@ export default function Contact(){
 
     return(
         <div>
-            {/* <Header /> */}
-            <form onSubmit={handleSubmit(post)} className={classes.form}>
+            <Header location={props} />
+            <Breadcrumb location={props} />
+            <div className={classes.root}>
+                <form onSubmit={handleSubmit(post)} className={classes.form}>
 
-                {success_aleart !== '' && (
-    				<Typography component="h1" variant="h5" className={classes.aleart}>
-                        <Alert severity="success">{success_aleart}</Alert>                
-                    </Typography>
-                )}
-                {error !== '' && (
-                    <Typography color="error" component="h1" variant="h5" className={classes.aleart}>
-                        {Object.keys(error).map(key => (
-                            <Alert key={key} severity="error">{error[key]}</Alert>
-                        ))}
-                    </Typography>
-                )}
+                    {success_aleart !== '' && (
+        				<Typography component="h1" variant="h5" className={classes.aleart}>
+                            <Alert severity="success">{success_aleart}</Alert>
+                        </Typography>
+                    )}
+                    {error !== '' && (
+                        <Typography color="error" component="h1" variant="h5" className={classes.aleart}>
+                            {Object.keys(error).map(key => (
+                                <Alert key={key} severity="error">{error[key]}</Alert>
+                            ))}
+                        </Typography>
+                    )}
 
-                <TextField variant="outlined" name="email" size="small" className={classes.form_input}
-                    error={errors.email ? true : false}
-                    inputRef={register({ pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}/ })}
-                    helperText={
-                        errors.email && <span className="error_message">メールアドレスの形式が正しくありません。</span>
-                    }
-                    label={'メールアドレス(任意)'}
-                />
-                <TextField variant="outlined" name="contents" multiline rows={3} className={classes.form_input}
-                    error={errors.contents ? true : false}
-                    inputRef={register({ required: true })}
-                    helperText={
-                        errors.contents && <span className="error_message">お問い合わせ内容を入力してください。</span>
-                    }
-                    label={'お問い合わせ内容'}
-                />
+                    <TextField variant="outlined" name="email" size="small" className={classes.form_input}
+                        error={errors.email ? true : false}
+                        inputRef={register({ pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}/ })}
+                        helperText={
+                            errors.email && <span className="error_message">メールアドレスの形式が正しくありません。</span>
+                        }
+                        label={'メールアドレス(任意)'}
+                    />
+                    <TextField variant="outlined" name="contents" multiline rows={3} className={classes.form_input}
+                        error={errors.contents ? true : false}
+                        inputRef={register({ required: true })}
+                        helperText={
+                            errors.contents && <span className="error_message">お問い合わせ内容を入力してください。</span>
+                        }
+                        label={'お問い合わせ内容'}
+                    />
 
-                <Button onClick={handleSubmit(post)} className={classes.post_button} variant="contained" color="primary">
-                    送信する
-                </Button>
-            </form>
+                    <Button onClick={handleSubmit(post)} className={classes.post_button} variant="contained" color="primary">
+                        送信する
+                    </Button>
+                </form>
+            </div>
         </div>
     )
 }

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { diffDate, serverUrl } from '../../common';
+
 import User from '../auth/User';
-import Contact from '../page/contact';
-import {RegularExpression} from '../tools/regularExpression';
 import ToolsTop from '../tools/top';
 import SideList from '../parts/SideList';
 import TabPanel from './TabPanel';
-import { diffDate, serverUrl } from '../../common';
 import Top from '../page/top';
+import Contact from '../page/contact';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -82,40 +82,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-
+    const location = props.location;
     const classes = useStyles();
-    const { pathname } = props.location;
+    const { pathname } = location;
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    // const [anchorMenuEl, setAnchorMenuEl] = useState(null);
     const [left_open, set_left_open] = useState(false);
-    const [badge_open, set_badge_open] = useState(false);
+    const [badge_open, set_badge_open] = useState(false);    
     const [tab_value, set_tab_value] = useState(0);
-    const [qiitaData, setQiitaData] = useState([]);
-    const [twitterData, setTwitterData] = useState([]);
-
-    window.onload = () => {
-        fetch(serverUrl + '/api/topData', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json',},
-        })
-        .then(response => {
-            if (!response.ok) {
-                console.log(response);
-            } else {
-                return response.json().then(data => {
-                    if('errors' in data){
-                        console.log(data.errors);
-                    } else {
-                        setQiitaData(data.qiitaData);
-                        setTwitterData(data.twitterData);
-                    }
-                });
-            }
-        }).catch(error => {
-            console.log(error);
-        })
-    }
+    const allTabs = ['/', '/blog', '/tools', '/portfolio', '/contact'];
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -125,19 +100,9 @@ export default function MenuAppBar(props) {
         setAnchorEl(null);
     };
 
-    // //メニュー
-    // const handleMenuClick = (event) => {
-    //     console.log(event.currentTarget);
-    //     setAnchorMenuEl(event.currentTarget);
-    // };
-
-    // const handleMenuClose = () => {
-    //     setAnchorMenuEl(null);
-    // };
-
-    const handleTabChange = (event, newValue) => {
-        set_tab_value(newValue);
-    };
+    const handleTabChange = (value) => {
+        props.location.history.push(value);
+    }
 
     function a11yProps(index) {
         return {
@@ -242,39 +207,15 @@ export default function MenuAppBar(props) {
                     </div>
                 </Toolbar>
 
-                <Tabs value={tab_value} onChange={handleTabChange} variant="scrollable" scrollButtons="auto">
-                    {/* <Tab className="tab_button" label="サイトトップ" {...a11yProps(0)} /> */}
-                    <Tab className="tab_button" label="サイトトップ" {...a11yProps(0)} />
-                    <Tab className="tab_button" label="ブログ" {...a11yProps(1)} />
-                    <Tab className="tab_button" label="webツール" {...a11yProps(2)} />
-                    <Tab className="tab_button" label="ポートフォリオ" {...a11yProps(3)} />
-                    <Tab className="tab_button" label="お問い合わせ" {...a11yProps(4)} />
+                <Tabs value={location.location.pathname} variant="scrollable" scrollButtons="auto" onChange={handleTabChange}>
+                    <Tab label="サイトトップ" value="/" component={Link} to={allTabs[0]} />
+                    <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} />
+                    <Tab label="webツール" value="/tools" component={Link} to={allTabs[2]} />
+                    <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} />
+                    <Tab label="お問い合わせ" value="/contanct" component={Link} to={allTabs[4]} />
                 </Tabs>
 
             </AppBar>
-
-            <TabPanel value={tab_value} index={0}>
-                <div className="card">
-                    <Top qiitaData={qiitaData} twitterData={twitterData} />
-                </div>
-            </TabPanel>
-            <TabPanel value={tab_value} index={1}>
-                <div className="card">
-                    <Top qiitaData={qiitaData} />
-                </div>
-            </TabPanel>
-            <TabPanel value={tab_value} index={2}>
-                <div className="card">
-                    <ToolsTop />
-                </div>
-            </TabPanel>
-            <TabPanel value={tab_value} index={3}>
-                Item Three
-            </TabPanel>
-            <TabPanel value={tab_value} index={4}>
-            BulletinBoard
-            </TabPanel>
-
         </div>
     );
 }

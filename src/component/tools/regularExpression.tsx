@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import '../../css/tools/regularExpression.css';
 import '../../css/tools/tools.css';
+import Header from '../parts/header';
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -12,7 +13,7 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 import Grid from '@material-ui/core/Grid';
 
-export const RegularExpression: React.FC = () => {
+export const RegularExpression: React.FC = (props) => {
 
     var customRegularEexpression: string = ''; //正規表現パターン
     var optionFlag: string = ''; //正規表現パターン
@@ -128,6 +129,7 @@ export const RegularExpression: React.FC = () => {
 
     return(
         <div>
+            <Header location={props} />
             <TextField className="input_str" label="検証対象文字列" variant="outlined" size="small" name="input_str"
                 InputProps={{endAdornment:
                     <div className="input_icon">

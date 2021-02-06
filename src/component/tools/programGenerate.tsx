@@ -16,7 +16,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const Main: React.FC = () => {
+export const ProgramGenerate: React.FC = () => {
 
     // const [conosleClassName, setConosleClassName] = useState('');
 
@@ -530,16 +530,4 @@ xhr.send();`;
             </div>
         </div>
     );
-}
-
-const App: React.FC = () => {
-    return (
-        <div className="main">
-            <Main />
-        </div>
-    );
-}
-
-if (document.getElementById('programGenerate')) {
-    ReactDOM.render(<App />, document.getElementById('programGenerate'));
 }

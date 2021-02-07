@@ -2,6 +2,9 @@
 import * as React from 'react';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
+import '../../css/tools/programGenerate.css';
+import '../../css/tools/tools.css';
+
 import * as source_code from './source_code';
 import {Radio} from './components/radioComponent';
 import {CheckBox} from './components/checkboxComponent';

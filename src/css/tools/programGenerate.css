@@ -1,0 +1,326 @@
+#main_content {
+    padding: 70px 0 0 0!important;
+}
+
+.calculator_container {
+  width: auto;
+  /* border: 2px solid black; */
+}
+
+.output{
+    display: flex;
+    /* height: 50px; */
+}
+
+.output input{
+    text-align: right;
+    margin: auto;
+}
+
+.output .input_val{
+    width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.output .convert_val{
+    width: 90px;
+    margin-left: 30px;
+    margin-right: 0;
+    text-align: center;
+}
+
+.output button{
+    height: auto;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+.responsive{
+    display: flex;
+}
+
+.num_bth{
+  width: 75px;
+  height: 38px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 30%;
+  background: lightgray;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.calculation_speed{
+    margin-top: 30px;
+}
+
+.result_form{
+    display: flex;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.result_form p{
+    width: 90px;
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 0;
+}
+
+.non_display{
+    display: none;
+}
+
+.anime_input {
+    margin-right: 10px;
+}
+
+.anime_season_input {
+    margin-right: 10px;
+    width: auto;
+}
+
+.search_title {
+    display: inline;
+}
+
+.search_season {
+    display: inline;
+    margin-top: 10px;
+}
+
+.season_year {
+    margin-right: 5px;
+}
+
+.season_month{
+    margin-right: 30px;
+}
+
+
+.program_title {
+    margin-top: 30px;
+}
+
+.program_option {
+    background-color: #eaeaea;
+    padding: 10px;
+}
+
+.program_pre_form {
+    height: 65vh !important;
+    padding-top: 20px;
+    padding-top: 0px;
+}
+
+.program_btn {
+    padding-right: 20px;
+    display: flow-root; /* 要素の回り込み回避 */
+}
+
+.result_copy_btn {
+    margin-bottom: 0px;
+}
+
+.program_option_input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.program_radio_form {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.program_run_button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.program_reset_button {
+    width: 100%;
+}
+
+.tool_tip_icon {
+    cursor: pointer;
+}
+
+.program_cp_tooltip {
+    margin-left: 5px;
+    cursor: text;
+    margin-bottom: 15px;
+    z-index: 2 !important;
+}
+
+.program_cp_tooltip_text_2 {
+    display: block;
+    text-align: left;
+}
+
+.program_code_form {
+    z-index: 1;
+}
+
+.program_code_form_sub {
+    position: fixed;
+    width: 55%;
+    top: 80px;
+    z-index: 1;
+}
+
+.option_reset_button{
+    margin-top: 10px;
+}
+.program_result_form {
+    height: 15vh;
+    padding-left: 20px;
+}
+
+.program_result_form ol{
+    padding-left: 0px;
+}
+
+.program_accordion_summury {
+    height: 40px;
+    min-height: 40px;
+}
+
+.program_accordion_summury div {
+    display: inherit;
+    padding-right: 20px;
+}
+
+.program_accordion_title {
+    display: block;
+    font-size: 18px;
+    float: left;
+    width: 100%;
+}
+
+.program_accordion_title_summary{
+    outline:none;
+    height: 30px;
+}
+
+.program_accordion_title_details {
+    height: auto;
+}
+
+.program_accordion_title_details p {
+    font-size: 12px;
+}
+
+.program_accordion_option_count {
+    float: right;
+    color: red;
+    font-size: 17px;
+}
+
+.program_result_code {
+    display: inline;
+    color: white;
+}
+
+.program_error_code {
+    display: inline;
+    color: red;
+}
+
+.program_readyState_table {
+    font-size: 0.7vw;
+}
+
+.program_readyState_table tr {
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px 0;
+}
+
+.program_readyState_table .program_readyState_table_center {
+    text-align: center;
+}
+
+.program_language_title {
+    padding-top: 10px;
+    float: left;
+    color: #7ad4ef;
+}
+
+.program_str_text {
+    width: 100%;
+}
+
+.program_str_title {
+    height: 30px;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary::before {
+    font-family: FontAwesome;
+    content: '\f067';
+    margin-right: 30px;
+    float: right;
+}
+
+details[open] summary::before {
+    content: '\f068';
+}
+
+.program_accordion_title_details p {
+    margin-bottom: 10px;
+}
+
+.program_curl_setopt_details {
+    font-size: 13px;
+}
+
+.program_input_form {
+    margin-top: 25px;
+}
+
+
+@media screen and (max-width: 600px) {
+    #main_content {
+        padding: 0 0 0 0!important;
+    }
+    .output{
+        display: block;
+    }
+    .output button{
+        height: auto;
+        margin-left: 0;
+        white-space: nowrap;
+    }
+    .output .convert_val{
+        width: 100px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .output .convert_val{
+        width: 100px;
+        margin-left: 0;
+        margin-right: 30px;
+    }
+    .responsive{
+        display: flex;
+    }
+    .anime_input {
+        margin-right: 10px;
+        width: 47%;
+    }
+    .anime_season_input {
+        margin-right: 10px;
+        width: auto;
+    }
+    .search_season {
+        display: block;
+        margin-top: 10px;
+    }
+    .search_title {
+        display: inline;
+    }
+}

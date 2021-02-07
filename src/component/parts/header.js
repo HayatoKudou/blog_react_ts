@@ -209,7 +209,7 @@ export default function MenuAppBar(props) {
 
                 <Tabs value={location.location.pathname} variant="scrollable" scrollButtons="auto" onChange={handleTabChange}>
                     <Tab label="サイトトップ" value="/" component={Link} to={allTabs[0]} />
-                    <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} />
+                    {/* <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} /> */}
                     <Tab label="webツール" value="/tools" component={Link} to={allTabs[2]} />
                     <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} />
                     <Tab label="お問い合わせ" value="/contanct" component={Link} to={allTabs[4]} />

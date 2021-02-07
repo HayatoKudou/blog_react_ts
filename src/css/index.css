@@ -11,6 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.root {
+    padding: 15px;
+}
+
 .card {
     padding: 20px;
 }
@@ -113,4 +117,29 @@ code {
 .paper div {
     margin-bottom: 5px;
     border-bottom: dotted 1px;
+}
+
+.tools {
+    margin-bottom: 15px;
+    padding: 10px;
+    position: relative;
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;
+}
+
+.tools img {
+    width: 500px;
+}
+
+.tools p {
+    color: #3e3535;
+    margin: 10px;
+    display: inline-block;
+    position: absolute;
+    font-size: 13px;
+}
+
+.tools p span {
+    font-size: 20px;
+    font-weight: bold;
 }

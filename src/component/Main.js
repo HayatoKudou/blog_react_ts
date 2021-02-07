@@ -14,8 +14,9 @@ import MenuAppBar from './parts/header';
 import Auth from './auth/Auth';
 import User from './auth/User';
 import Top from './page/top';
+import Portfolio from './page/portfolio';
 import Contact from './page/contact';
-import Tools_Top from './tools/top';
+import ToolsTop from './tools/top';
 import {RegularExpression} from './tools/regularExpression';
 import {ProgramGenerate} from './tools/programGenerate';
 
@@ -57,8 +58,8 @@ function RouterApp() {
         <Switch>
                 <Route exact path="/" component={Top} />
                 <Route exact path="/blog" component={Top} />
-                <Route exact path="/tools" component={Tools_Top} />
-                <Route exact path="/portfolio" component={Tools_Top} />
+                <Route exact path="/tools" component={ToolsTop} />
+                <Route exact path="/portfolio" component={Portfolio} />
                 <Route exact path="/contact" component={Contact} />
 
                 <Route exact path="/tools/programGenerate" component={ProgramGenerate} />

@@ -212,7 +212,7 @@ export default function MenuAppBar(props) {
                     {/* <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} /> */}
                     <Tab label="webツール" value="/tools" component={Link} to={allTabs[2]} />
                     <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} />
-                    <Tab label="お問い合わせ" value="/contanct" component={Link} to={allTabs[4]} />
+                    <Tab label="お問い合わせ" value="/contact" component={Link} to={allTabs[4]} />
                 </Tabs>
 
             </AppBar>

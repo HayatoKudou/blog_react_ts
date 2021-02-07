@@ -6,16 +6,16 @@ import {
 } from 'react-router-dom';
 import { serverUrl } from '../common';
 
-import App from './App';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import Reset from './auth/Reset';
-import MenuAppBar from './parts/header';
 import Auth from './auth/Auth';
 import User from './auth/User';
 import Top from './page/top';
+import Post from './page/post';
 import Portfolio from './page/portfolio';
 import Contact from './page/contact';
+import MenuAppBar from './parts/header';
 import ToolsTop from './tools/top';
 import {RegularExpression} from './tools/regularExpression';
 import {ProgramGenerate} from './tools/programGenerate';
@@ -71,7 +71,7 @@ function RouterApp() {
             <Auth>
                 {/* ログイン必須ページ */}
                 <Switch>
-                    <Route exact path="/profile" component={App} />
+                    <Route exact path="/post" component={Post} />
                 </Switch>
             </Auth>
         </Switch>

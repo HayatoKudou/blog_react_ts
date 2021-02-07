@@ -66,8 +66,7 @@ export default function Register() {
 
     function sendRegister(argument){
         var data = {
-            platform: selected_platform,
-            player_id: argument.player_id,
+            name: argument.email,
             email: argument.email,
             password: argument.password,
         }

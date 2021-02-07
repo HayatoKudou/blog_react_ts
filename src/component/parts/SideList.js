@@ -53,6 +53,18 @@ export default function SideList(){
                 </div>
                 :
                 <div>
+                    <ListItemLink href="/" className={classes.list_nochecked}>
+                        <ListItemText primary="サイトトップ" />
+                    </ListItemLink>
+                    <ListItemLink href="/tools" className={classes.list_nochecked}>
+                        <ListItemText primary="WEBツール" />
+                    </ListItemLink>
+                    <ListItemLink href="/portfolio" className={classes.list_nochecked}>
+                        <ListItemText primary="ポートフォリオ" />
+                    </ListItemLink>
+                    <ListItemLink href="/contact" className={classes.list_nochecked}>
+                        <ListItemText primary="お問い合わせ" />
+                    </ListItemLink>
                     <ListItemLink href="/register" className={classes.list_nochecked}>
                         <ListItemText primary="ユーザー登録" />
                     </ListItemLink>

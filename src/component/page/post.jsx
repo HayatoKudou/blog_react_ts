@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import Header from '../parts/header';
-import { makeStyles } from '@material-ui/core/styles';
 import { serverUrl } from '../../common';
+import Header from '../parts/header';
 import Breadcrumb from '../parts/breadcrumb';
 
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -17,31 +17,13 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '20px',
         padding: '15px',
     },
-    aleart: {
-        marginTop: '20px',
-    },
     form: {
         width: '80%',
         margin: '0 auto',
     },
-    form_input: {
-        width: '100%',
-        margin: '20px 0 0 0',
-    },
-    post_button: {
-        width: '100%',
-        margin: '20px 0 0 0',
-    },
-    error_message: {
-        fontSize: 17,
-        listStyle: 'none',
-        marginLeft: 30,
-        marginBottom: 15,
-        width: '100% !important',
-    },
 }));
 
-export default function Contact(props){
+export default function Post(){
 
     const { register, handleSubmit, errors, reset } = useForm();
     const classes = useStyles();
@@ -78,8 +60,8 @@ export default function Contact(props){
 
     return(
         <div>
-            <Header location={props} />
-            <Breadcrumb location={props} />
+            <Header />
+            <Breadcrumb />
             <div className={classes.root}>
                 <form onSubmit={handleSubmit(post)} className={classes.form}>
 

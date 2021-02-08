@@ -47,6 +47,21 @@ export default function SideList(){
                 </ListItemLink>
                 {User.isLoggedIn() ?
                 <div>
+                    <ListItemLink href="/" className={classes.list_nochecked}>
+                        <ListItemText primary="サイトトップ" />
+                    </ListItemLink>
+                    <ListItemLink href="/tools" className={classes.list_nochecked}>
+                        <ListItemText primary="WEBツール" />
+                    </ListItemLink>
+                    <ListItemLink href="/portfolio" className={classes.list_nochecked}>
+                        <ListItemText primary="ポートフォリオ" />
+                    </ListItemLink>
+                    <ListItemLink href="/contact" className={classes.list_nochecked}>
+                        <ListItemText primary="お問い合わせ" />
+                    </ListItemLink>
+                    <ListItemLink href="/post" className={classes.list_nochecked}>
+                        <ListItemText primary="投稿" />
+                    </ListItemLink>
                     <ListItemLink onClick={() => {User.logout();window.location.reload();}} className={classes.list_nochecked}>
                         <ListItemText primary="ログアウト" />
                     </ListItemLink>

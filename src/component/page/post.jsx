@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Post(){
+export default function Post(props){
 
     const { register, handleSubmit, errors, reset } = useForm();
     const classes = useStyles();
@@ -61,7 +61,7 @@ export default function Post(){
     return(
         <div>
             <Header />
-            <Breadcrumb />
+            <Breadcrumb location={props} />
             <div className={classes.root}>
                 <form onSubmit={handleSubmit(post)} className={classes.form}>
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useState } from 'react';
-import ReactDOM from 'react-dom';
 import '../../css/tools/regularExpression.css';
 import '../../css/tools/tools.css';
 import Header from '../parts/header';
+import Breadcrumb from '../parts/breadcrumb';
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -130,7 +130,8 @@ export const RegularExpression: React.FC = (props) => {
     return(
         <div>
             <Header location={props} />
-                <div className="root">
+            <Breadcrumb location={props} />
+            <div className="root">
                 <TextField className="input_str" label="検証対象文字列" variant="outlined" size="small" name="input_str"
                     InputProps={{endAdornment:
                         <div className="input_icon">

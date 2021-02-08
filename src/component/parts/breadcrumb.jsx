@@ -46,6 +46,12 @@ export default function Breadcrumb(props){
                 {pathname === '/contact' &&
                     <Link to={pathname} className={classes.now}>お問い合わせ</Link>
                 }
+                {pathname === '/tools/regularExpression' &&
+                    <Link to={'/tools'} className={classes.link}>WEBツール</Link>
+                }
+                {pathname === '/tools/regularExpression' &&
+                    <Link to={pathname} className={classes.now}>正規表現ツール</Link>
+                }
             </Breadcrumbs>
         </div>
     )

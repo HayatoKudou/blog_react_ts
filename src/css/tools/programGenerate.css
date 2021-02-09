@@ -2,6 +2,18 @@
     padding: 70px 0 0 0!important;
 }
 
+.copy_btn {
+    float: right;
+    cursor: pointer;
+    color: #98fb98 !important;
+    background-color: #696666;
+}
+
+.copy_btn .pln{
+    color: #98fb98 !important;
+}
+
+
 .calculator_container {
   width: auto;
   /* border: 2px solid black; */
@@ -112,11 +124,20 @@
     height: 65vh !important;
     padding-top: 20px;
     padding-top: 0px;
+    padding-left: 30px;
+}
+
+.program_pre_form .after_code {
+    color: white;
 }
 
 .program_btn {
     padding-right: 20px;
     display: flow-root; /* 要素の回り込み回避 */
+}
+
+.program_btn span {
+    color: white;
 }
 
 .result_copy_btn {
@@ -126,6 +147,7 @@
 .program_option_input {
     width: 100%;
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .program_radio_form {
@@ -165,8 +187,9 @@
 .program_code_form_sub {
     position: fixed;
     width: 55%;
-    top: 80px;
+    top: 100px;
     z-index: 1;
+    font-size: 87.5%;
 }
 
 .option_reset_button{
@@ -195,6 +218,10 @@
     display: block;
     font-size: 18px;
     float: left;
+    width: 100%;
+}
+
+.program_accordion_titles {
     width: 100%;
 }
 

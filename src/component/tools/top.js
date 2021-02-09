@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Component,useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { diffDate, serverUrl } from '../../common';
@@ -30,6 +30,14 @@ const useStyles = makeStyles((theme) => ({
 export default function ToolsTop(props){
     const classes = useStyles();
 
+    function componentDidMount() {
+        document.title = 'WEBツール';
+    }
+
+    useEffect(() => {
+        componentDidMount();
+    });
+
     return (
         <div>
             <Header location={props} />
@@ -43,6 +51,9 @@ export default function ToolsTop(props){
                         <Paper>
                             <div className="page_title">
                                 <h1>WEBツール</h1>
+                                <div className="update_date">
+                                    <p>最終更新日: 2021年1月8日</p>
+                                </div>
                             </div>
                             <div className="tools">
                                 <Link to="/tools/regularExpression">
@@ -60,7 +71,8 @@ export default function ToolsTop(props){
                                     <img border="1px" src="/programGenerate.png" alt=""/>
                                     <p>
                                         <span>プログラム生成ツール</span><br/><br/>
-                                        申し訳ございません。ただいまメンテナンス中です。
+                                        JavaScriptで動作するプログラム生成ツールです。<br/>
+                                        設定されたコードを実行し、実行結果を表示します。<br/>
                                     </p>
                                 </Link>
                             </div>

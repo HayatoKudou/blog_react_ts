@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
+import Clipboard from 'react-clipboard.js';
+
+import Grid from '@material-ui/core/Grid';
 
 type Props = {
     code: string;
@@ -74,16 +77,16 @@ export const Result: React.FC<Props> = ({code, method, language}) => {
     }
 
     return (
-        <div className="row">
-            <div className="col-md-2">
+        <Grid container spacing={3} className="input_regular_expression">
+            <Grid item xs={2} sm={2}>
                 <button className="program_run_button" onClick={() => run(run_code)}>Run</button>
                 <button className="program_reset_button" onClick={() => reset()}>Reset</button>
-            </div>
-            <div className="col-md-10">
-                <pre className="prettyprint linenums lang-js program_result_form">
+            </Grid>
+            <Grid item xs={10} sm={10}>
+            <pre className="prettyprint linenums lang-js program_result_form">
                     <code className="program_btn">
                         <span>処理時間: {processingTime} ms</span>
-                        <button className="copy_btn" data-clipboard-text={resultCode} onClick={() => changeCopyButtontitle()}>{copyButtontitle}</button>
+                        <Clipboard className="copy_btn" data-clipboard-text={resultCode} onClick={() => changeCopyButtontitle()}>{copyButtontitle}</Clipboard>
                     </code>
                     {Object.keys(errorCode).map(key => {
                         return(
@@ -123,7 +126,7 @@ export const Result: React.FC<Props> = ({code, method, language}) => {
                         })
                     }
                 </pre>
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     )
 }

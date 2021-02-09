@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import Clipboard from 'react-clipboard.js';
 
 type Props = {
     code: string;
@@ -28,10 +29,9 @@ export const Code: React.FC<Props> = ({code, language}) => {
             <pre className="prettyprint linenums lang-js program_pre_form">
                 <code className="program_btn">
                     <p className="program_language_title">{language}</p>
-                    <p><button className="copy_btn" data-clipboard-text={after_code} onClick={() => changeCopyButtontitle()}>{copyButtontitle}</button></p>
-                </code>
-                {/* <code contentEditable={true}>{after_code}</code> */}
-                <code>{after_code}</code>
+                    <p><Clipboard className="copy_btn" data-clipboard-text={after_code} onClick={() => changeCopyButtontitle()}>{copyButtontitle}</Clipboard></p>
+                </code>                
+                <code className="after_code">{after_code}</code>
             </pre>
         </div>
     )

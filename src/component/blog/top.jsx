@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { diffDate, serverUrl } from '../../common';
 import RigthSideList from '../parts/rightSideList';
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Top(props){
+export default function BlogTop(props){
 
     const classes = useStyles();
 
@@ -48,21 +49,15 @@ export default function Top(props){
                     <Grid className={classes.grid} item xs={8} sm={8}>
                         <Paper>
                             <div className="page_title">
-                                <h1>お知らせ・更新</h1>
+                                <h1>ブログ</h1>
                                 <div className="update_date">
                                     <p>最終更新日: 2021年1月8日</p>
                                 </div>
                                 <div className="articles">
-                                    {Object.keys(JSON.parse(User.getLocalStorage('qiitaData'))).map(key => {
-                                        return(                                        
-                                            <div className="article" key={key}>
-                                                <span className="create_date">{JSON.parse(User.getLocalStorage('qiitaData'))[key].date+': '}</span>
-                                                <a className="article_url" href={JSON.parse(User.getLocalStorage('qiitaData'))[key].url}>
-                                                    {'【Qiita】' + JSON.parse(User.getLocalStorage('qiitaData'))[key].notice_content}
-                                                </a>
-                                            </div>
-                                        )
-                                    })}
+                                    <div className="article">
+                                        <span className="create_date">2020-08-15: </span>
+                                        <Link className="article_url" to="/blog/reactUnity">react-unity-webglでReact × Unityを動かす方法</Link>
+                                    </div>
                                 </div>
                             </div>
                         </Paper>

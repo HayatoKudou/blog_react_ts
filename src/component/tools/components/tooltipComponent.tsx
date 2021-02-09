@@ -1,4 +1,5 @@
 import * as React from 'react';
+import InfoIcon from '@material-ui/icons/Info';
 
 type Props = {
     detail: string;
@@ -8,7 +9,7 @@ type Props = {
 export var Tooltip: React.FC<Props> = ({detail, detail2 = ''}) => {
     return(
         <div className="cp_tooltip program_cp_tooltip" >
-            <i className="fas fa-info-circle tool_tip_icon"></i>
+            <InfoIcon style={{ fontSize: 20 }} />
             <div className="cp_tooltiptext program_cp_tooltip_text">
                 <span>{detail}</span>
                 {detail2.length > 0 &&

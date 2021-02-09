@@ -20,6 +20,10 @@ import ToolsTop from './tools/top';
 import {RegularExpression} from './tools/regularExpression';
 import {ProgramGenerate} from './tools/programGenerate';
 
+import BlogTop from './blog/top';
+import ReactUnity from './blog/react_unity';
+import ReactUnity_sample from './blog/reactUnity_sample';
+
 function usePageViews() {
     //デバイスの登録
     if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
@@ -57,13 +61,16 @@ function RouterApp() {
     return (
         <Switch>
                 <Route exact path="/" component={Top} />
-                <Route exact path="/blog" component={Top} />
+                <Route exact path="/blog" component={BlogTop} />
                 <Route exact path="/tools" component={ToolsTop} />
-                <Route exact path="/portfolio" component={Portfolio} />
+                {/* <Route exact path="/portfolio" component={Portfolio} /> */}
                 <Route exact path="/contact" component={Contact} />
 
                 <Route exact path="/tools/programGenerate" component={ProgramGenerate} />
                 <Route exact path="/tools/regularExpression" component={RegularExpression} />
+
+                <Route exact path="/blog/reactUnity" component={ReactUnity} />
+                <Route exact path="/blog/reactUnity_sample" component={ReactUnity_sample} />
 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/reset" component={Reset} />

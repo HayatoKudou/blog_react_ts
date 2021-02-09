@@ -1,0 +1,36 @@
+.cp_tooltip {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+.cp_tooltip .cp_tooltiptext {
+  font-size: 15px;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+  left: -150px;
+  bottom: 25px;
+	visibility: hidden;
+	width: auto;
+	white-space: nowrap;
+	padding: 0.3em 0.5em;
+	transition: opacity 1s;
+	text-align: center;
+	opacity: 0;
+	color: #ffffff;
+	border-radius: 6px;
+	background-color: black;
+}
+.cp_tooltip .cp_tooltiptext::after {
+	position: absolute;
+	top: 100%;
+	left: 154px;
+	/* margin-left: -40px; */
+	content: ' ';
+	border: 5px solid transparent;
+	border-top-color: black;
+}
+.cp_tooltip:hover .cp_tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}

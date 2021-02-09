@@ -1,6 +1,6 @@
-export const frontUrl = 'https://gamer-lab.net';
-export const serverUrl = 'http://blog.com';
-export const copyright = 'gamer-lab.net';
+export const frontUrl = 'https://kudohayatoblog.com';
+export const serverUrl = 'https://auth.kudohayatoblog.com';
+export const copyright = 'kudohayatoblog.com';
 
 //日付フォーマット
 export function dateFormat(date, format) {

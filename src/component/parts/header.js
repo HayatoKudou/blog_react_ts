@@ -83,12 +83,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar(props) {
     const location = props.location;
-    const classes = useStyles();
-    const { pathname } = location;
+    const classes = useStyles();    
+    const pathname = location.location.pathname;
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const [left_open, set_left_open] = useState(false);
-    const [badge_open, set_badge_open] = useState(false);    
+    const [badge_open, set_badge_open] = useState(false);
     const [tab_value, set_tab_value] = useState(0);
     const allTabs = ['/', '/blog', '/tools', '/portfolio', '/contact'];
 
@@ -199,7 +199,7 @@ export default function MenuAppBar(props) {
                                 </div>)
                                 :
                                 (<div>
-                                    <MenuItem><Link to="/register" className="route_link">ユーザー登録</Link></MenuItem>
+                                    {/* <MenuItem><Link to="/register" className="route_link">ユーザー登録</Link></MenuItem> */}
                                     <MenuItem><Link to="/login" className="route_link">ログイン</Link></MenuItem>
                                 </div>
                                 )}
@@ -207,11 +207,19 @@ export default function MenuAppBar(props) {
                     </div>
                 </Toolbar>
 
-                <Tabs value={location.location.pathname} variant="scrollable" scrollButtons="auto" onChange={handleTabChange}>
+                <Tabs value={pathname} variant="scrollable" scrollButtons="auto" onChange={handleTabChange}>
                     <Tab label="サイトトップ" value="/" component={Link} to={allTabs[0]} />
-                    {/* <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} /> */}
-                    <Tab label="webツール" value="/tools" component={Link} to={allTabs[2]} />
-                    <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} />
+                    {pathname.indexOf('/blog/') != -1 ?
+                        <Tab label="ブログ" value={pathname} component={Link} to={allTabs[1]} />
+                    :
+                        <Tab label="ブログ" value="/blog" component={Link} to={allTabs[1]} />
+                    }
+                    {pathname.indexOf('/tools/') != -1 ?
+                        <Tab label="webツール" value={pathname} component={Link} to={allTabs[2]} />
+                    :
+                        <Tab label="webツール" value="/tools" component={Link} to={allTabs[2]} />
+                    }
+                    {/* <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} /> */}
                     <Tab label="お問い合わせ" value="/contact" component={Link} to={allTabs[4]} />
                 </Tabs>
 

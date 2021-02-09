@@ -35,6 +35,18 @@ code {
     border-left: 6px solid #3498db;
 }
 
+.page_title h2 {
+    border-left: solid 5px #969696;
+    padding: 0 0.5em;
+    border-bottom: 1px solid #969696;
+}
+
+.page_title h3 {
+    border-left: solid 5px #969696;
+    padding: 0 0.5em;
+    border-bottom: 1px solid #969696;
+}
+
 .page_title h1::after {
     position: absolute;
     left: 0;
@@ -68,8 +80,28 @@ code {
 }
 
 .page_title .articles .article {
-    margin-top: 15px;
+    margin-top: 20px;
     border-bottom: dotted 1px;
+}
+
+.page_title .blog_img {
+    height: 200px;
+}
+
+.page_title .blog_p {
+    font-size: 15px;
+}
+
+.page_title .blog_ul {
+    font-size: 15px;
+}
+
+.page_title .blog_code {
+    font-size: 15px;
+    background: #25292f;
+    color: #fff;
+    padding: 1em;
+    margin: 1em 0;
 }
 
 .sns_twitter_form {

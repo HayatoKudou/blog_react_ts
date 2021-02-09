@@ -148,7 +148,7 @@ export default function Login() {
     						className={classes.submit}
     					>ログイン
     					</Button>
-    					<Grid container>
+    					{/* <Grid container>
     						<Grid item xs>
     							<Link href="/reset" variant="body2">
     								パスワードを忘れた場合
@@ -159,7 +159,7 @@ export default function Login() {
     								アカウントを作成する
     							</Link>
     						</Grid>
-    					</Grid>
+    					</Grid> */}
     				</form>
     			</div>
     			<Box mt={8}>

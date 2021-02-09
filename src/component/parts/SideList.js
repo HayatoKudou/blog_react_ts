@@ -80,9 +80,9 @@ export default function SideList(){
                     <ListItemLink href="/contact" className={classes.list_nochecked}>
                         <ListItemText primary="お問い合わせ" />
                     </ListItemLink>
-                    <ListItemLink href="/register" className={classes.list_nochecked}>
+                    {/* <ListItemLink href="/register" className={classes.list_nochecked}>
                         <ListItemText primary="ユーザー登録" />
-                    </ListItemLink>
+                    </ListItemLink> */}
                     <ListItemLink href="/login" className={classes.list_nochecked}>
                         <ListItemText primary="ログイン" />
                     </ListItemLink>

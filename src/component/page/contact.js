@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import Header from '../parts/header';
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,6 +47,14 @@ export default function Contact(props){
     const classes = useStyles();
     const [error, set_error] = useState('');
     const [success_aleart, set_success_aleart] = useState('');
+
+    function componentDidMount() {
+        document.title = 'お問い合わせ';
+    }
+
+    useEffect(() => {
+        componentDidMount();
+    });
 
     function post(data){
         if(window.confirm("送信しますか?")){

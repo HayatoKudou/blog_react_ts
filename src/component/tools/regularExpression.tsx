@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../css/tools/regularExpression.css';
 import '../../css/tools/tools.css';
 import Header from '../parts/header';
@@ -14,6 +14,14 @@ import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 import Grid from '@material-ui/core/Grid';
 
 export const RegularExpression: React.FC = (props) => {
+
+    function componentDidMount() {
+        document.title = '正規表現ツール';
+    }
+
+    useEffect(() => {
+        componentDidMount();
+    });
 
     var customRegularEexpression: string = ''; //正規表現パターン
     var optionFlag: string = ''; //正規表現パターン
@@ -101,9 +109,6 @@ export const RegularExpression: React.FC = (props) => {
             set_option_flag(optionFlag);
             set_option_flag_dot(checked);
         }
-
-        // console.log(name + ': ' + value);
-        // console.log(input_str + ': ' + customRegularEexpression);
         run_regular_expression(customRegularEexpression, optionFlag);
     }
 
@@ -135,7 +140,7 @@ export const RegularExpression: React.FC = (props) => {
                 <TextField className="input_str" label="検証対象文字列" variant="outlined" size="small" name="input_str"
                     InputProps={{endAdornment:
                         <div className="input_icon">
-                            <IconButton className="copy_btn" data-clipboard-text={input_str}>
+                            <IconButton className="" data-clipboard-text={input_str}>
                                 <FileCopyOutlinedIcon fontSize="small" className="copy_icon" />
                             </IconButton>
                             <IconButton onClick={() => input_delete('input_str')}>
@@ -150,7 +155,7 @@ export const RegularExpression: React.FC = (props) => {
                 <TextField className="input_str" label="正規表現" variant="outlined" size="small" name="custom_regular_expression"
                     InputProps={{endAdornment:
                         <div className="input_icon">
-                            <IconButton className="copy_btn" data-clipboard-text={custom_regular_expression}>
+                            <IconButton className="" data-clipboard-text={custom_regular_expression}>
                                 <FileCopyOutlinedIcon fontSize="small" className="copy_icon" />
                             </IconButton>
                             <IconButton onClick={() => input_delete('custom_regular_expression')}>

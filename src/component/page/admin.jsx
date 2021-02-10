@@ -20,13 +20,37 @@ const useStyles = makeStyles((theme) => ({
 export const Admin = (props) => {
 
     const classes = useStyles();
+    const [access, set_access] = useState();
+
+    const getAdminData = () => {
+        fetch(serverUrl + '/api/getAdminData', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json',},
+        })
+        .then(response => {
+            if (!response.ok) {
+                console.log(response);
+            } else {
+                return response.json().then(data => {
+                    if('errors' in data){
+                        console.log(data.errors);                        
+                    } else {
+                        set_access(data.access);
+                    }
+                });
+            }
+        }).catch(error => {
+            console.log(error);
+        })
+    }
 
     return(
         <div>
             <Header location={props}  />
             <Breadcrumb location={props} />
+            <button onClick={getAdminData}>取得</button>
             <div className={classes.root}>
-                <p>アクセス数: </p>
+                <p>アクセス数: {access}</p>
             </div>
         </div>
     )

@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { diffDate, serverUrl } from '../../common';
 import RigthSideList from '../parts/rightSideList';
 import Sns from '../parts/sns';
+import {TableOfContents} from '../parts/tableOfContents';
 import Breadcrumb from '../parts/breadcrumb';
 import Header from '../parts/header';
 import User from '../auth/User';
@@ -22,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     grid: {
         padding: '5px !important',
     },
+    tableOfContents: {
+        display: 'flex',
+        padding: '5px !important',
+    }
 }));
 
 export default function ReactUnity(props){
@@ -33,6 +38,18 @@ export default function ReactUnity(props){
     useEffect(() => {
         componentDidMount();
     });
+
+    const tableOfContentsData = [
+        '目的', '使用環境', '手順',
+        '1.react-unity-webglインストール',
+        '2.UnityをWebGL形式でビルド',
+        '3.React側でUnityオブジェクトの作成',
+        '終わり',
+    ];
+    const els = useRef([]);
+    tableOfContentsData.map(i => {
+        els.current[i] = React.createRef();
+    })
 
     const classes = useStyles();
     const code =
@@ -65,19 +82,19 @@ export const Game = () => {
                                 <h1>react-unity-webglでReact × Unityを動かす方法</h1>
                                 <div className="update_date"><p>投稿日: 2021年1月8日</p></div>
 
-                                <h2>目的</h2>
+                                <h2 ref={els.current['目的']}>目的</h2>
                                 <p className="blog_p">UnityをWebGL形式で出力し、React上で動かす</p>
                                 <Link to="/blog/reactUnity_sample">2Dアクションゲームのサンプル</Link>
 
-                                <h3>使用環境</h3>
+                                <h3 ref={els.current['使用環境']}>使用環境</h3>
                                 <ul>
                                     <li>React (17.0.1)</li>
                                     <li>Unity (2019.419f1)</li>
                                     <li>react-unity-webgl</li>
                                 </ul>
 
-                                <h3>手順</h3>
-                                <h4>1.react-unity-webglインストール</h4>
+                                <h3 ref={els.current['使用環境']}>手順</h3>
+                                <h4 ref={els.current['1.react-unity-webglインストール']}>1.react-unity-webglインストール</h4>
                                 <p className="blog_p">
                                     Unityのバージョンに対応するパッケージをダウンロード<br/>
                                     ※Unityのバージョンは、【HELP → Check for Updates】もしくは【Unity Hub】から確認できます。
@@ -90,7 +107,7 @@ export const Game = () => {
                                 </pre>
                                 <a href="https://github.com/elraccoone/react-unity-webgl">公式GitHub</a>
 
-                                <h4>2.UnityをWebGL形式でビルド</h4>
+                                <h4 ref={els.current['2.UnityをWebGL形式でビルド']}>2.UnityをWebGL形式でビルド</h4>
                                 <ul className="blog_ul">
                                     <li>【File → Build Settings】からビルドページを開く</li>
                                     <li>Platformから「WebGL」を選択し、Switch Platformを押す。</li>
@@ -103,7 +120,7 @@ export const Game = () => {
                                 </p>
                                 <img className="blog_img" src="/React_Unity.png" alt=""/>
 
-                                <h4>3.React側でUnityオブジェクトの作成</h4>
+                                <h4 ref={els.current['3.React側でUnityオブジェクトの作成']}>3.React側でUnityオブジェクトの作成</h4>
                                 <p className="blog_p">
                                     UnityWebGLライブラリからUnityおよびUnityContentクラスをインポート、<br/>
                                     新しいコンテンツオブジェクトを作成し、レンダリング関数で割り当てます。
@@ -112,19 +129,19 @@ export const Game = () => {
                                     <code>{code}</code>
                                 </pre>
 
-                                <h3>終わり</h3>
+                                <h3 ref={els.current['終わり']}>終わり</h3>
                                 <p className="blog_p">
                                     ここまでお疲れ様でした。<br/>
                                     ReactでUnityを扱えるって燃えませんか？私は燃えました。<br/>
                                     便利なパッケージを作ってくれた方に感謝です！
                                 </p>
-
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid item className={classes.grid} xs={User.get('device') === 'pc' ? 3 : 12}>
+                    <Grid item className={classes.tableOfContents} xs={User.get('device') === 'pc' ? 3 : 12}>
                         <Paper>
-                            <RigthSideList twitterData={props.twitterData} />
+                            <TableOfContents els={els} tableOfContentsData={tableOfContentsData} />
+                            {/* <RigthSideList twitterData={props.twitterData} /> */}
                         </Paper>
                     </Grid>
                 </Grid>

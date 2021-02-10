@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     title_smartphone: {
-        width: '50%',
+        width: '45%',
+        fontSize: '15px',
     },
     userName_pc: {
         fontSize: 15,
@@ -90,7 +91,7 @@ export default function MenuAppBar(props) {
     const [left_open, set_left_open] = useState(false);
     const [badge_open, set_badge_open] = useState(false);
     const [tab_value, set_tab_value] = useState(0);
-    const allTabs = ['/', '/blog', '/tools', '/portfolio', '/contact'];
+    const allTabs = ['/', '/blog', '/tools', '/portfolio', '/contact', '/admin'];
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -221,6 +222,12 @@ export default function MenuAppBar(props) {
                     }
                     {/* <Tab label="ポートフォリオ" value="/portfolio" component={Link} to={allTabs[3]} /> */}
                     <Tab label="お問い合わせ" value="/contact" component={Link} to={allTabs[4]} />
+                    {User.isLoggedIn && 
+                        pathname.indexOf('/admin/') != -1 ?
+                            <Tab label="管理者画面" value={pathname} component={Link} to={allTabs[5]} />
+                        :
+                            <Tab label="管理者画面" value="/admin" component={Link} to={allTabs[5]} />
+                    }
                 </Tabs>
 
             </AppBar>

@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import User from '../auth/User';
 
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeIcon from '@material-ui/icons/Home';
@@ -21,7 +22,11 @@ const useStyles = makeStyles((theme) => ({
         color: '#444444',
         fontWeight: 'bold',
     },
-    breadcrumb: {margin: '10px 0'}
+    pc_breadcrumb: {margin: '10px 0'},
+    breadcrumb: {
+        margin: '10px 0',
+        fontSize: '15px',
+    }
 }));
 
 export default function Breadcrumb(props){
@@ -31,7 +36,7 @@ export default function Breadcrumb(props){
 
     return(
         <div>
-            <Breadcrumbs className={classes.breadcrumb} aria-label="breadcrumb">
+            <Breadcrumbs className={User.get('device') === 'pc' ? classes.pc_breadcrumb : classes.breadcrumb } aria-label="breadcrumb">
                 <Link to="/" className={classes.link}>
                 <HomeIcon className={classes.icon} />サイトトップ
                 </Link>

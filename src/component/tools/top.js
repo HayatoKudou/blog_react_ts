@@ -6,6 +6,7 @@ import RigthSideList from '../parts/rightSideList';
 import Header from '../parts/header';
 import Sns from '../parts/sns';
 import Breadcrumb from '../parts/breadcrumb';
+import User from '../auth/User';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -44,10 +45,12 @@ export default function ToolsTop(props){
             <Breadcrumb location={props} />
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={1} sm={1}>
-                        <Sns />
-                    </Grid>
-                    <Grid className={classes.grid} item xs={8} sm={8}>
+                    {User.get('device') === 'pc' &&
+                        <Grid item xs={1}>
+                            <Sns />
+                        </Grid>
+                    }
+                    <Grid className={classes.grid} item xs={User.get('device') === 'pc' ? 8 : 12}>
                         <Paper>
                             <div className="page_title">
                                 <h1>WEBツール</h1>
@@ -78,7 +81,7 @@ export default function ToolsTop(props){
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid className={classes.grid} item xs={3} sm={3}>
+                    <Grid className={classes.grid} item xs={User.get('device') === 'pc' ? 3 : 12}>
                       <Paper>
                             <RigthSideList />
                       </Paper>

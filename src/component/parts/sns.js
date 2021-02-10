@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-import {TwitterShareButton,} from "react-share";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import SearchIcon from '@material-ui/icons/Search';
@@ -18,17 +17,17 @@ export default function Sns(){
     return(
         <div>
             <div className={classes.sns_icon}>
-                <TwitterShareButton className="sns_twitter_form" via="@metalic_kudo_h" url="https://twitter.com/metalic_kudo_h">
+                <a target="brank" href="https://twitter.com/metalic_kudo_h" className="sns_twitter_form" >
                     <TwitterIcon className={classes.icon} fontSize="small" />
-                </TwitterShareButton>
+                </a>
             </div>
             <div className={classes.sns_icon}>
-                <a href="https://github.com/HayatoKudou" className="sns_git_form" >
+                <a target="brank" href="https://github.com/HayatoKudou" className="sns_git_form" >
                     <GitHubIcon className={classes.icon} fontSize="small" />
                 </a>
             </div>
             <div className={classes.sns_icon}>
-                <a href="https://qiita.com/metal_kentucky" className="sns_qiita_form" >
+                <a target="brank" href="https://qiita.com/metal_kentucky" className="sns_qiita_form" >
                     <SearchIcon className={classes.icon} />
                 </a>
             </div>

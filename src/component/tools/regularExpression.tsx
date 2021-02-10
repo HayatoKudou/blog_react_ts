@@ -45,9 +45,7 @@ export const RegularExpression: React.FC = (props) => {
     //正規表現実行
     function run_regular_expression(customRegularEexpression: string, str: string = ''): void {
         const regexp = new RegExp(customRegularEexpression, optionFlag);
-        const matchStr = str == '' ? input_str.match(regexp) : str.match(regexp);
-        console.log(regexp);
-        console.log(matchStr);
+        const matchStr = str === '' ? input_str.match(regexp) : str.match(regexp);
         if(matchStr !== null){
             matchStr.forEach(value =>
                 setResult(value)
@@ -327,7 +325,7 @@ export const RegularExpression: React.FC = (props) => {
                 <TextField className="result_form" label="結果" rows={5} variant="outlined" multiline value={result}
                     InputProps={{endAdornment:
                         <div className="input_icon">
-                            <IconButton className="copy_btn" data-clipboard-text={result}>
+                            <IconButton data-clipboard-text={result}>
                                 <FileCopyOutlinedIcon className="copy_icon" />
                             </IconButton>
                             <IconButton onClick={() => input_delete('result')}>

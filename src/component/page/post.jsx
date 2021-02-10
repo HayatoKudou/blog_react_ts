@@ -60,7 +60,7 @@ export default function Post(props){
 
     return(
         <div>
-            <Header />
+            <Header location={props}  />
             <Breadcrumb location={props} />
             <div className={classes.root}>
                 <form onSubmit={handleSubmit(post)} className={classes.form}>

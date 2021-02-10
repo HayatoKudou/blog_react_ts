@@ -43,10 +43,12 @@ export default function BlogTop(props){
             <Breadcrumb location={props} />
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={1} sm={1}>
-                        <Sns />
-                    </Grid>
-                    <Grid className={classes.grid} item xs={8} sm={8}>
+                    {User.get('device') === 'pc' &&
+                        <Grid item xs={1} sm={1}>
+                            <Sns />
+                        </Grid>
+                    }
+                    <Grid className={classes.grid} item xs={User.get('device') === 'pc' ? 8 : 12}>
                         <Paper>
                             <div className="page_title">
                                 <h1>ブログ</h1>
@@ -62,7 +64,7 @@ export default function BlogTop(props){
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid className={classes.grid} item xs={3} sm={3}>
+                    <Grid className={classes.grid} item xs={User.get('device') === 'pc' ? 3 : 12}>
                         <Paper>
                             <RigthSideList twitterData={props.twitterData} />
                         </Paper>

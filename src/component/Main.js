@@ -15,6 +15,7 @@ import Top from './page/top';
 import Post from './page/post';
 import Portfolio from './page/portfolio';
 import Contact from './page/contact';
+import {Admin} from './page/admin'
 import MenuAppBar from './parts/header';
 import ToolsTop from './tools/top';
 import {RegularExpression} from './tools/regularExpression';
@@ -78,7 +79,8 @@ function RouterApp() {
             <Auth>
                 {/* ログイン必須ページ */}
                 <Switch>
-                    <Route exact path="/post" component={Post} />
+                    <Route exact path="/admin" component={Admin} />
+                    <Route exact path="/admin/post" component={Post} />
                 </Switch>
             </Auth>
         </Switch>

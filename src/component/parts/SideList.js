@@ -26,6 +26,16 @@ const useStyles = makeStyles((theme) => ({
     list_nochecked: {
         padding: '0 0 0 30px !important',
     },
+    other_site: {
+        display: 'flex',
+        color: '#1976d2',
+        padding: '5px 16px 0 16px !important',
+        textDecoration: 'none',
+    },
+    other_site_span: {
+        fontSize: '17px',
+        padding: '5px 0 0 16px !important',
+    }
 }));
 
 function ListItemLink(props) {
@@ -86,6 +96,9 @@ export default function SideList(){
                     <ListItemLink href="/login" className={classes.list_nochecked}>
                         <ListItemText primary="ログイン" />
                     </ListItemLink>
+                    <a className={classes.other_site}  href="https://gamer-lab.net" target="brank">
+                        <span className={classes.other_site_span} >Apex Legends エーペックスレジェンズ掲示板</span>
+                    </a>
                 </div>
                 }
             </List>

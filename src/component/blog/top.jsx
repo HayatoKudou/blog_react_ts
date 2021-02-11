@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import { diffDate, serverUrl } from '../../common';
+import { diffDate, serverUrl, update_date } from '../../common';
 import RigthSideList from '../parts/rightSideList';
 import Sns from '../parts/sns';
 import Breadcrumb from '../parts/breadcrumb';
@@ -53,7 +53,7 @@ export default function BlogTop(props){
                             <div className="page_title">
                                 <h1>ブログ</h1>
                                 <div className="update_date">
-                                    <p>最終更新日: 2021年1月8日</p>
+                                    <p>最終更新日: {update_date}</p>
                                 </div>
                                 <div className="articles">
                                     <div className="article">

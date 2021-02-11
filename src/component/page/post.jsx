@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => ({
         width: '80%',
         margin: '0 auto',
     },
+    form_input: {
+        width: '100%',
+        margin: '20px 0 0 0',
+    },
+    post_button: {
+        width: '100%',
+        margin: '20px 0 0 0',
+    },
 }));
 
 export default function Post(props){
@@ -32,7 +40,7 @@ export default function Post(props){
 
     function post(data){
         if(window.confirm("送信しますか?")){
-            fetch(serverUrl + '/api/contact', {
+            fetch(serverUrl + '/api/post', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json',},
                 body: JSON.stringify(data),
@@ -77,22 +85,13 @@ export default function Post(props){
                             ))}
                         </Typography>
                     )}
-
-                    <TextField variant="outlined" name="email" size="small" className={classes.form_input}
-                        error={errors.email ? true : false}
-                        inputRef={register({ pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}/ })}
-                        helperText={
-                            errors.email && <span className="error_message">メールアドレスの形式が正しくありません。</span>
-                        }
-                        label={'メールアドレス(任意)'}
-                    />
                     <TextField variant="outlined" name="contents" multiline rows={7} className={classes.form_input}
                         error={errors.contents ? true : false}
                         inputRef={register({ required: true })}
                         helperText={
-                            errors.contents && <span className="error_message">お問い合わせ内容を入力してください。</span>
+                            errors.contents && <span className="error_message">内容を入力してください。</span>
                         }
-                        label={'お問い合わせ内容'}
+                        label={'投稿内容'}
                     />
 
                     <Button onClick={handleSubmit(post)} className={classes.post_button} variant="contained" color="primary">

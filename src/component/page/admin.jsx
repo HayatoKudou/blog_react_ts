@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { serverUrl } from '../../common';
 import Header from '../parts/header';
 import Breadcrumb from '../parts/breadcrumb';
@@ -49,6 +50,7 @@ export const Admin = (props) => {
             <Header location={props}  />
             <Breadcrumb location={props} />
             <button onClick={getAdminData}>取得</button>
+            <Link to="/admin/post">投稿</Link>
             <div className={classes.root}>
                 <p>アクセス数: {access}</p>
             </div>

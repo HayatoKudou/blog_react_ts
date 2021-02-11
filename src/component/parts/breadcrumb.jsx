@@ -43,12 +43,6 @@ export default function Breadcrumb(props){
                 {pathname === '/blog' &&
                     <Link to={pathname} className={classes.now}>ブログ</Link>
                 }
-                {pathname === '/blog/reactUnity' &&
-                    <Link to={'/blog'} className={classes.link}>ブログ</Link>
-                }
-                {pathname === '/blog/reactUnity' &&
-                    <Link to={pathname} className={classes.now}>react-unity-webglでReact × Unityを動かす方法</Link>
-                }
                 {pathname === '/tools' &&
                     <Link to={pathname} className={classes.now}>WEBツール</Link>
                 }
@@ -57,6 +51,16 @@ export default function Breadcrumb(props){
                 }
                 {pathname === '/contact' &&
                     <Link to={pathname} className={classes.now}>お問い合わせ</Link>
+                }
+                {pathname === '/admin' &&
+                    <Link to={pathname} className={classes.now}>管理者画面</Link>
+                }
+
+                {pathname === '/blog/reactUnity' &&
+                    <Link to={'/blog'} className={classes.link}>ブログ</Link>
+                }
+                {pathname === '/blog/reactUnity' &&
+                    <Link to={pathname} className={classes.now}>react-unity-webglでReact × Unityを動かす方法</Link>
                 }
                 {pathname === '/tools/regularExpression' &&
                     <Link to={'/tools'} className={classes.link}>WEBツール</Link>
@@ -69,6 +73,12 @@ export default function Breadcrumb(props){
                 }
                 {pathname === '/tools/programGenerate' &&
                     <Link to={pathname} className={classes.now}>プログラム生成ツール</Link>
+                }
+                {pathname === '/admin/post' &&
+                    <Link to={'/admin'} className={classes.link}>管理者画面</Link>
+                }
+                {pathname === '/admin/post' &&
+                    <Link to={pathname} className={classes.now}>投稿</Link>
                 }
             </Breadcrumbs>
         </div>

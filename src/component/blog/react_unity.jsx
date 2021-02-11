@@ -93,7 +93,7 @@ export const Game = () => {
                                     <li>react-unity-webgl</li>
                                 </ul>
 
-                                <h3 ref={els.current['使用環境']}>手順</h3>
+                                <h3 ref={els.current['手順']}>手順</h3>
                                 <h4 ref={els.current['1.react-unity-webglインストール']}>1.react-unity-webglインストール</h4>
                                 <p className="blog_p">
                                     Unityのバージョンに対応するパッケージをダウンロード<br/>

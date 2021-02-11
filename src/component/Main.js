@@ -48,6 +48,7 @@ function usePageViews() {
                 } else {
                     User.setArr('qiitaData', data.qiitaData);
                     User.setArr('twitterData', data.twitterData);
+                    User.setArr('articleData', data.articleData);
                 }
             });
         }

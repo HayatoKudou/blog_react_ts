@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { diffDate, serverUrl } from '../../common';
+import { diffDate, serverUrl, update_date } from '../../common';
 import RigthSideList from '../parts/rightSideList';
 import Sns from '../parts/sns';
 import Breadcrumb from '../parts/breadcrumb';
@@ -52,9 +52,17 @@ export default function Top(props){
                             <div className="page_title">
                                 <h1>お知らせ・更新</h1>
                                 <div className="update_date">
-                                    <p>最終更新日: 2021年1月8日</p>
+                                    <p>最終更新日: {update_date}</p>
                                 </div>
                                 <div className="articles">
+                                    {Object.keys(JSON.parse(User.getLocalStorage('articleData'))).map(key => {
+                                        return(                                        
+                                            <div className="article" key={key}>
+                                                <span className="create_date">{JSON.parse(User.getLocalStorage('articleData'))[key].created_at+': '}</span>
+                                                <span className="article_url">{JSON.parse(User.getLocalStorage('articleData'))[key].content}</span>
+                                            </div>
+                                        )
+                                    })}
                                     {Object.keys(JSON.parse(User.getLocalStorage('qiitaData'))).map(key => {
                                         return(                                        
                                             <div className="article" key={key}>

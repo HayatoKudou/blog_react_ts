@@ -68,6 +68,8 @@ code {
 
 .page_title .create_date {
     font-size: 17px;
+    display: inline-block;
+    width: 15%;
 }
 
 .page_title .article_url {
@@ -179,6 +181,10 @@ code {
     font-weight: bold;
 }
 
+.tableOfContents {
+    width: 100%;
+}
+
 @media screen and (max-width: 600px) {
     .page_title .article_url{
         font-size: 15px !important;
@@ -195,5 +201,11 @@ code {
 
     .tools img {
         width: 100% !important;
+    }
+
+    .page_title .create_date {
+        font-size: 15px !important;
+        display: inline-block;
+        width: 25% !important;
     }
 }

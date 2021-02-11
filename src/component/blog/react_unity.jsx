@@ -139,7 +139,7 @@ export const Game = () => {
                         </Paper>
                     </Grid>
                     <Grid item className={classes.tableOfContents} xs={User.get('device') === 'pc' ? 3 : 12}>
-                        <Paper>
+                        <Paper className="tableOfContents">
                             <TableOfContents els={els} tableOfContentsData={tableOfContentsData} />
                             {/* <RigthSideList twitterData={props.twitterData} /> */}
                         </Paper>

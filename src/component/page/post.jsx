@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { serverUrl } from '../../common';
 import Header from '../parts/header';
 import Breadcrumb from '../parts/breadcrumb';
+import User from '../auth/User';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -42,7 +43,10 @@ export default function Post(props){
         if(window.confirm("送信しますか?")){
             fetch(serverUrl + '/api/post', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json',},
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer: ' + JSON.parse(User.getLocalStorage('user')).api_token
+                },
                 body: JSON.stringify(data),
             })
             .then(response => {

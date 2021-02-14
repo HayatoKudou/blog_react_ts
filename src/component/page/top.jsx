@@ -27,14 +27,41 @@ const useStyles = makeStyles((theme) => ({
 export default function Top(props){
 
     const classes = useStyles();
+    // const [qiitaData, set_qiitaData] = useState('');
+    // const [articleData, set_articleData] = useState('');
+    const [article_data, set_article_data] = useState('');
 
     function componentDidMount() {
         document.title = '駆け出しエンジニアの開発ブログ';
     }
 
+    function getData(){
+        //記事の登録
+        fetch(serverUrl + '/api/topData', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json',},
+        })
+        .then(response => {
+            if (!response.ok) {
+                console.log(response);
+            } else {
+                return response.json().then(data => {
+                    if('errors' in data){
+                        console.log(data.errors);
+                    } else {
+                        set_article_data(data.articleData);
+                    }
+                });
+            }
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     useEffect(() => {
         componentDidMount();
-    });
+        getData();
+    }, []);
 
     return (
         <div>
@@ -55,24 +82,22 @@ export default function Top(props){
                                     <p>最終更新日: {update_date}</p>
                                 </div>
                                 <div className="articles">
-                                    {Object.keys(JSON.parse(User.getLocalStorage('articleData'))).map(key => {
-                                        return(                                        
-                                            <div className="article" key={key}>
-                                                <span className="create_date">{JSON.parse(User.getLocalStorage('articleData'))[key].created_at+': '}</span>
-                                                <span className="article_url">{JSON.parse(User.getLocalStorage('articleData'))[key].content}</span>
-                                            </div>
-                                        )
-                                    })}
-                                    {Object.keys(JSON.parse(User.getLocalStorage('qiitaData'))).map(key => {
-                                        return(                                        
-                                            <div className="article" key={key}>
-                                                <span className="create_date">{JSON.parse(User.getLocalStorage('qiitaData'))[key].date+': '}</span>
-                                                <a className="article_url" href={JSON.parse(User.getLocalStorage('qiitaData'))[key].url}>
-                                                    {'【Qiita】' + JSON.parse(User.getLocalStorage('qiitaData'))[key].notice_content}
-                                                </a>
-                                            </div>
-                                        )
-                                    })}
+                                    {article_data && (
+                                        Object.keys(article_data).map(key => {
+                                            return(                                                
+                                                (article_data[key].type === 'notice' || article_data[key].type === 'qiita') && (
+                                                    <div className="article" key={key}>
+                                                        <span className="create_date">{article_data[key].date+': '}</span>
+                                                        {article_data[key].url ? (
+                                                            <a href={article_data[key].url} target="blank">{article_data[key].content}</a>) 
+                                                        : 
+                                                            <span className="article_url">{article_data[key].content}</span>
+                                                        }                                                        
+                                                    </div>
+                                                )
+                                            )
+                                        })
+                                    )}
                                 </div>
                             </div>
                         </Paper>

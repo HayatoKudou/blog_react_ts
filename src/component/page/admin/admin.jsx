@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { serverUrl } from '../../common';
-import Header from '../parts/header';
-import Breadcrumb from '../parts/breadcrumb';
+import { serverUrl } from '../../../common';
+import Header from '../../parts/header';
+import Breadcrumb from '../../parts/breadcrumb';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +34,7 @@ export const Admin = (props) => {
             } else {
                 return response.json().then(data => {
                     if('errors' in data){
-                        console.log(data.errors);                        
+                        console.log(data.errors);
                     } else {
                         set_access(data.access);
                     }
@@ -49,10 +49,12 @@ export const Admin = (props) => {
         <div>
             <Header location={props}  />
             <Breadcrumb location={props} />
-            <button onClick={getAdminData}>取得</button>
-            <Link to="/admin/post">投稿</Link>
             <div className={classes.root}>
+                <button onClick={getAdminData}>取得</button>
                 <p>アクセス数: {access}</p>
+            </div>
+            <div>
+                <Link to="/admin/post">投稿</Link>
             </div>
         </div>
     )

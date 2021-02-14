@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,10 +12,10 @@ import Reset from './auth/Reset';
 import Auth from './auth/Auth';
 import User from './auth/User';
 import Top from './page/top';
-import Post from './page/post';
+import Post from './page/admin/post';
 import Portfolio from './page/portfolio';
 import Contact from './page/contact';
-import {Admin} from './page/admin'
+import {Admin} from './page/admin/admin'
 import MenuAppBar from './parts/header';
 import ToolsTop from './tools/top';
 import {RegularExpression} from './tools/regularExpression';
@@ -33,30 +33,6 @@ function usePageViews() {
     } else {
         User.set('device', 'pc');
     }
-
-    //記事の登録
-    fetch(serverUrl + '/api/topData', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json',},
-    })
-    .then(response => {
-        if (!response.ok) {
-            console.log(response);
-        } else {
-            return response.json().then(data => {
-                if('errors' in data){
-                    console.log(data.errors);
-                } else {
-                    User.setArr('qiitaData', data.qiitaData);
-                    User.setArr('twitterData', data.twitterData);
-                    User.setArr('articleData', data.articleData);
-                }
-            });
-        }
-    }).catch(error => {
-        console.log(error);
-    })
-
 }
 
 function RouterApp() {

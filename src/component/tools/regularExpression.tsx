@@ -131,7 +131,7 @@ export const RegularExpression: React.FC = (props) => {
     }
 
     return(
-        <div>
+        <div className="tool_root">
             <Header location={props} />
             <Breadcrumb location={props} />
             <div className="root">

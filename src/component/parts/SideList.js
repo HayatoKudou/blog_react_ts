@@ -75,6 +75,9 @@ export default function SideList(){
                     <ListItemLink onClick={() => {User.logout();window.location.reload();}} className={classes.list_nochecked}>
                         <ListItemText primary="ログアウト" />
                     </ListItemLink>
+                    <a className={classes.other_site}  href="https://gamer-lab.net" target="brank">
+                        <span className={classes.other_site_span} >Apex Legends エーペックスレジェンズ掲示板</span>
+                    </a>
                 </div>
                 :
                 <div>

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { serverUrl } from '../../common';
-import Header from '../parts/header';
-import Breadcrumb from '../parts/breadcrumb';
-import User from '../auth/User';
+import { serverUrl } from '../../../common';
+import Header from '../../parts/header';
+import Breadcrumb from '../../parts/breadcrumb';
+import User from '../../auth/User';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Alert from '@material-ui/lab/Alert';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
     post_button: {
         width: '100%',
         margin: '20px 0 0 0',
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
     },
 }));
 
@@ -89,7 +97,37 @@ export default function Post(props){
                             ))}
                         </Typography>
                     )}
-                    <TextField variant="outlined" name="contents" multiline rows={7} className={classes.form_input}
+
+                    <div>
+                    <TextField type="date" name="date" className={classes.textField}
+                        error={errors.date ? true : false}
+                        inputRef={register({ required: true })}
+                        helperText={
+                            errors.date && <span className="error_message">日付を入力してください。</span>
+                        }
+                    />
+
+                    <FormControl className={classes.formControl}>
+                        <InputLabel htmlFor="post_type">タイプ</InputLabel>
+                        <Select native inputRef={register({ required: true })} name="type"
+                            error={errors.type ? true : false}
+                            inputProps={{
+                                name: 'age',
+                                id: 'post_type',
+                            }}
+                            helperText={
+                                errors.name && <span className="error_message">タイプを入力してください。</span>
+                            }
+                        >
+                            <option aria-label="None" value="" />
+                            <option value={'notice'}>お知らせ</option>
+                            <option value={'blog'}>ブログ</option>
+                            <option value={'tool'}>ツール</option>
+                        </Select>
+                    </FormControl>
+                    </div>
+
+                    <TextField variant="outlined" name="contents" multiline rows={5} className={classes.form_input}
                         error={errors.contents ? true : false}
                         inputRef={register({ required: true })}
                         helperText={

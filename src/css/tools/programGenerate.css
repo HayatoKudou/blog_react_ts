@@ -1,3 +1,7 @@
+.tool_root {
+    background-color: white;
+}
+
 #main_content {
     padding: 70px 0 0 0!important;
 }
@@ -185,8 +189,8 @@
 }
 
 .program_code_form_sub {
-    position: fixed;
-    width: 55%;
+    top: 0;
+    position: sticky;
     top: 100px;
     z-index: 1;
     font-size: 87.5%;

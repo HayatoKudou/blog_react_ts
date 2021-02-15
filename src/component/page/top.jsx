@@ -84,15 +84,15 @@ export default function Top(props){
                                 <div className="articles">
                                     {article_data && (
                                         Object.keys(article_data).map(key => {
-                                            return(                                                
+                                            return(
                                                 (article_data[key].type === 'notice' || article_data[key].type === 'qiita') && (
                                                     <div className="article" key={key}>
                                                         <span className="create_date">{article_data[key].date+': '}</span>
                                                         {article_data[key].url ? (
-                                                            <a href={article_data[key].url} target="blank">{article_data[key].content}</a>) 
-                                                        : 
+                                                            <a className="article_url" href={article_data[key].url} target="blank">{article_data[key].content}</a>)
+                                                        :
                                                             <span className="article_url">{article_data[key].content}</span>
-                                                        }                                                        
+                                                        }
                                                     </div>
                                                 )
                                             )

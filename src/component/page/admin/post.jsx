@@ -99,32 +99,43 @@ export default function Post(props){
                     )}
 
                     <div>
-                    <TextField type="date" name="date" className={classes.textField}
-                        error={errors.date ? true : false}
-                        inputRef={register({ required: true })}
-                        helperText={
-                            errors.date && <span className="error_message">日付を入力してください。</span>
-                        }
-                    />
-
-                    <FormControl className={classes.formControl}>
-                        <InputLabel htmlFor="post_type">タイプ</InputLabel>
-                        <Select native inputRef={register({ required: true })} name="type"
-                            error={errors.type ? true : false}
-                            inputProps={{
-                                name: 'age',
-                                id: 'post_type',
-                            }}
+                        <TextField type="date" name="date" className={classes.textField}
+                            error={errors.date ? true : false}
+                            inputRef={register({ required: true })}
                             helperText={
-                                errors.name && <span className="error_message">タイプを入力してください。</span>
+                                errors.date && <span className="error_message">日付を入力してください。</span>
                             }
-                        >
-                            <option aria-label="None" value="" />
-                            <option value={'notice'}>お知らせ</option>
-                            <option value={'blog'}>ブログ</option>
-                            <option value={'tool'}>ツール</option>
-                        </Select>
-                    </FormControl>
+                        />
+                    </div>
+
+                    <div>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="post_type">タイプ</InputLabel>
+                            <Select native inputRef={register({ required: true })}
+                                error={errors.type ? true : false}
+                                inputProps={{
+                                    name: 'type',
+                                    id: 'post_type',
+                                }}
+                                helperText={
+                                    errors.name && <span className="error_message">タイプを入力してください。</span>
+                                }
+                            >
+                                <option aria-label="None" value="" />
+                                <option value={'notice'}>お知らせ</option>
+                                <option value={'blog'}>ブログ</option>
+                                <option value={'tool'}>ツール</option>
+                            </Select>
+                        </FormControl>
+
+                        <TextField name="path" className={classes.textField}
+                            error={errors.path ? true : false}
+                            inputRef={register({ required: true })}
+                            helperText={
+                                errors.path && <span className="error_message">パスを入力してください。</span>
+                            }
+                            label={'パス'}
+                        />
                     </div>
 
                     <TextField variant="outlined" name="contents" multiline rows={5} className={classes.form_input}

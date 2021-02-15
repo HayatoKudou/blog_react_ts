@@ -1,7 +1,7 @@
 export const frontUrl = 'https://kudohayatoblog.com';
 export const serverUrl = 'https://auth.kudohayatoblog.com';
 export const copyright = 'kudohayatoblog.com';
-export const update_date = '2021年1月11日';
+export const update_date = '2021年2月11日';
 
 //日付フォーマット
 export function dateFormat(date, format) {

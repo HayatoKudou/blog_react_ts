@@ -28,6 +28,7 @@ import TextField from '@material-ui/core/TextField';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 
 const useStyles = makeStyles((theme) => ({
     root: {flexGrow: 1, },
@@ -67,9 +68,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '12px',
         padding: '0 5px',
         whiteSpace: 'nowrap',
-        fontWeight: 'bold',
+        fontWeight: 'bold',        
     },
-    search_form: { position: 'relative' },
+    search_form: { position: 'relative',},
     search: {
         margin: '10px 0',
         position: 'relative',
@@ -86,20 +87,27 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     searchIcon: {
+        alignItems: 'center',
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
         pointerEvents: 'none',
         display: 'flex',
-        paddingTop: '5px',
         justifyContent: 'center',
     },
-    search_link_form: {padding: 0},
+    deleteIcon: {color: 'white'},
+    search_link_form: {
+        padding: 0,
+        zIndex: 2,
+    },
     s_result: { 
         position: 'absolute',
         backgroundColor: 'white',
         color: 'black',
         whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        minWidth: '100%',
     },
     search_link: {padding: '0px !important', height: '35px' },
     searchLinkIcon: {paddingLeft: '16px', paddingRight: '5px'},
@@ -216,14 +224,17 @@ export default function MenuAppBar(props) {
                                             inputProps={{ 'aria-label': 'search' }}
                                             onChange={(e) => article_search({'keyword': e.target.value})}
                                         />
+                                        <IconButton onClick={() => {reset();set_search_result([]);}}>
+                                            <BackspaceIcon fontSize="small" className={classes.deleteIcon} />
+                                        </IconButton>
                                         <div className={classes.s_result}>
                                             {search_result.length !== 0 && 
                                                 Object.keys(search_result).map(key => (
                                                     <List className={classes.search_link_form} key={key}>
-                                                        <ListItemLink href={search_result[key].url} className={classes.search_link_form}>
+                                                        <ListItemLink href={search_result[key].path != null ? search_result[key].path : search_result[key].url} className={classes.search_link_form}>
                                                             <SearchIcon className={classes.searchLinkIcon} />
                                                             <ListItemText className={classes.search_link}
-                                                                primary={<Typography style={{ fontSize: '15px' }}>{search_result[key].content}</Typography>}
+                                                                primary={<Typography style={{ fontSize: '15px', padding: '3px' }}>{search_result[key].content}</Typography>}
                                                             />
                                                         </ListItemLink>
                                                     </List>

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mokuzi: {textAlign: 'center',},
   listItem: {
-    paddingLeft: 15,
+    padding: '4px 0px 4px 15px',
     borderLeft: '5px solid #757575',
   },
   listText: {

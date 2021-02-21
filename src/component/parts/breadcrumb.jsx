@@ -62,6 +62,19 @@ export default function Breadcrumb(props){
                 {pathname === '/blog/reactUnity' &&
                     <Link to={pathname} className={classes.now}>react-unity-webglでReact × Unityを動かす方法</Link>
                 }
+                {pathname === '/blog/LaravelAuthApi' &&
+                    <Link to={'/blog'} className={classes.link}>ブログ</Link>
+                }
+                {pathname === '/blog/LaravelAuthApi' &&
+                    <Link to={pathname} className={classes.now}>LaravelでトークンベースのAPI認証</Link>
+                }
+                {pathname === '/blog/reactHookForm' &&
+                    <Link to={'/blog'} className={classes.link}>ブログ</Link>
+                }
+                {pathname === '/blog/reactHookForm' &&
+                    <Link to={pathname} className={classes.now}>React Hookでバリデーション付きのフォームを実装</Link>
+                }
+
                 {pathname === '/tools/regularExpression' &&
                     <Link to={'/tools'} className={classes.link}>WEBツール</Link>
                 }

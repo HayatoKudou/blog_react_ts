@@ -57,6 +57,10 @@ export default function BlogTop(props){
                                 </div>
                                 <div className="articles">
                                     <div className="article">
+                                        <span className="create_date">2021-02-16: </span>
+                                        <Link className="article_url" to="/blog/reactHookForm">React Hookでバリデーション付きのフォームを実装</Link>
+                                    </div>
+                                    <div className="article">
                                         <span className="create_date">2021-02-11: </span>
                                         <Link className="article_url" to="/blog/LaravelAuthApi">LaravelでトークンベースのAPI認証</Link>
                                     </div>

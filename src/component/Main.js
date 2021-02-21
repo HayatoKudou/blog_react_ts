@@ -25,6 +25,7 @@ import BlogTop from './blog/top';
 import ReactUnity from './blog/react_unity';
 import ReactUnity_sample from './blog/reactUnity_sample';
 import LaravelAuthApi from './blog/LaravelAuthApi';
+import ReactHookForm from './blog/reactHookForm/reactHookForm';
 
 function usePageViews() {
     //デバイスの登録
@@ -51,6 +52,7 @@ function RouterApp() {
                 <Route exact path="/blog/reactUnity" component={ReactUnity} />
                 <Route exact path="/blog/reactUnity_sample" component={ReactUnity_sample} />
                 <Route exact path="/blog/LaravelAuthApi" component={LaravelAuthApi} />
+                <Route exact path="/blog/reactHookForm" component={ReactHookForm} />
 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/reset" component={Reset} />
